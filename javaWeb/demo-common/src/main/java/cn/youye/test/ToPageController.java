@@ -1,4 +1,4 @@
-package cn.youye.test.common;
+package cn.youye.test;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -7,7 +7,9 @@
 <body>
 <h3>Hello World!</h3>
 
+
 <div class="container">
+<a href="${ctx}/img/topage?pageName=file/ImgJcropTest">图片裁剪测试</a>
 
     <ul class="control-group">
         <li><a href="${ctx}/global/test1">国际化测试1</a></li>
@@ -16,7 +18,8 @@
     </ul>
     <hr/>
     <ul>
-        <li><a href="${ctx}/toPage?pageName=imgValidate/imgtest1">图片验证码测试1</a></li>
+        <li><a href="${ctx}/toPage?pageName=imgValidate/imgtest1">图片验证码测试1</a>
+        </li>
     </ul>
     <hr/>
     <ul>
