@@ -1,0 +1,11 @@
+javaWeb/.idea/
+javaWeb/demo-common/demo-common.iml
+javaWeb/demo-common/target/
+javaWeb/demo-hibernate/demo-hibernate.iml
+javaWeb/demo-servlet/demo-servlet.iml
+javaWeb/demo-servlet/target/
+javaWeb/demo-spring/demo-spring.iml
+javaWeb/demo-spring/target/
+javaWeb/demo-ssm/demo-ssm.iml
+javaWeb/demo.iml
+javaWeb/demo-struts/demo-struts.iml

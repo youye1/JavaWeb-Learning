@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <bean id="hello1" class="java.lang.String">
+        <constructor-arg value="#{'hello '}#{world}"/>
+    </bean>
+    <bean id="hello2" class="java.lang.String">
+        <constructor-arg value="#{'hello '+ world}"/>
+    </bean>
+    <bean id="hello3" class="java.lang.String">
+        <constructor-arg value="#{'hello ' + @world}"/>
+    </bean>
+
+    <!--开启注解支持-->
+    <context:annotation-config/>
+
+    <bean id="world" class="java.lang.String">
+        <constructor-arg value="#{'world!'}"/>
+    </bean>
+    <bean id="helloBean1" class="cn.youye.spring.spel.SpELTest03"/>
+
+    <bean id="helloBean2" class="cn.youye.spring.spel.SpELTest03">
+        <property name="value" value="哈哈"/>
+    </bean>
+
+    <bean id="spelLiteral" class="cn.youye.spring.spel.SpelLiteral">
+        <property name="count" value="#{5}"/>
+        <property name="message" value="The value is #{5}"/>
+        <property name="capacity" value="#{1e4}"/>
+        <property name="frequency" value="#{89.7}"/>
+        <property name="name1" value="#{'You'}"/>
+        <property name="name2" value='#{"ye"}'/>
+        <property name="enabled" value="#{false}"/>
+    </bean>
+
+    <!--bean对象-->
+    <bean id="spelLiteral2" class="cn.youye.spring.spel.SpelLiteral2">
+        <property name="pi" value="#{T(java.lang.Math).PI}"/>
+        <property name="random" value="#{T(java.lang.Math).random()}"/>
+    </bean>
+
+    <util:list id="cities">
+        <bean class="cn.youye.spring.spel.SpelCity">
+            <property name="name" value="WuHan"/>
+            <property name="state" value="China"/>
+            <property name="population" value="1200000"/>
+        </bean>
+        <bean class="cn.youye.spring.spel.SpelCity">
+            <property name="name" value="GuangZhou"/>
+            <property name="state" value="China"/>
+            <property name="population" value="60000"/>
+        </bean>
+        <bean class="cn.youye.spring.spel.SpelCity">
+            <property name="name" value="BeiJing"/>
+            <property name="state" value="China"/>
+            <property name="population" value="1200000"/>
+        </bean>
+        <bean class="cn.youye.spring.spel.SpelCity">
+            <property name="name" value="ShangHai"/>
+            <property name="state" value="China"/>
+            <property name="population" value="190000"/>
+        </bean>
+        <bean class="cn.youye.spring.spel.SpelCity">
+            <property name="name" value="HuaShengdeng"/>
+            <property name="state" value="America"/>
+            <property name="population" value="50000"/>
+        </bean>
+    </util:list>
+
+    <!--4.集合操作-->
+    <bean id="spelCityList"
+          class="cn.youye.spring.spel.SpelCityList">
+        <!--第1个City对象(从0开始)-->
+        <property name="choseCity1" value="#{cities[1]}"/>
+        <!--随机获取City对象-->
+        <property name="choseCity2"
+                  value="#{cities[T(java.lang.Math).random()*cities.size()]}"/>
+        <!--  .^ :查询第一个符合条件的City对象-->
+        <property name="aBigCity1" value="#{cities.^[population gt 1000000]}"/>
+        <!--  .$ :查询最后一个符合条件的City对象-->
+        <property name="aBigCity2" value="#{cities.$[population gt 1000000]}"/>
+        <!--  .? :会创建一个新的集合，在新的集合中只存放符合中括号内容的表达式的成员-->
+        <property name="bigCitys" value="#{cities.?[population gt 1000000]}"/>
+        <!--  .![] : 投影，将集合中每个成员的选定属性放入到一个新的集合中-->
+        <property name="cityName1" value="#{cities.![name]}"/>
+        <property name="cityName2" value="#{cities.![name+':'+state+' ']}"/>
+        <property name="cityName3" value="#{cities.?[population gt 1000000].![name+':'+state+' ']}"/>
+
+    </bean>
+
+    <bean id="resultObj"
+          class="cn.youye.spring.spelCheck.ResultObj">
+        <property name="provinceList1" value="#{provinces.?[name.indexof('hh')]}"/>
+        <property name="provinceList2" value="#{provinces.![name]}"/>
+    </bean>
+
+    <util:list id="provinces">
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="BJ"/>
+            <property name="name" value="北京市"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="NM"/>
+            <property name="name" value="内蒙古自治区"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="TJ"/>
+            <property name="name" value="天津市"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="HB"/>
+            <property name="name" value="河北省"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="SX"/>
+            <property name="name" value="山西"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="LN"/>
+            <property name="name" value="辽宁省"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="JL"/>
+            <property name="name" value="吉林省"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="SH"/>
+            <property name="name" value="上海市"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="JS"/>
+            <property name="name" value="江苏省"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="ZJ"/>
+            <property name="name" value="浙江省"/>
+        </bean>
+        <bean class="cn.youye.spring.spelCheck.ProvinceObj">
+            <property name="ID" value="HE"/>
+            <property name="name" value="湖北省"/>
+        </bean>
+    </util:list>
+
+
+</beans>

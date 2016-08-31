@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--配置目标类-->
+    <bean id="helloDaoImpl" class="cn.youye.factory.aop.HelloDaoImpl"/>
+
+    <!--配置切面-->
+    <bean id="aspect" class="cn.youye.factory.aop.HelloAspect"/>
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* cn.youye.factory..*.*(..))"/>
+        <aop:aspect ref="aspect">
+            <aop:before method="beforeAdvice" pointcut-ref="pointcut"/>
+            <aop:after method="afterAdvice" pointcut="execution(* cn.youye.factory..*.*(..))"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!--3.配置配置文件-->
+    <aop:aspectj-autoproxy/>
+
+    <bean id="stuInterceptor"
+          class="cn.youye.aop.spring.StuInterceptor"/>
+    <bean id="student" class="cn.youye.aop.spring.Student"/>
+
+    <bean id="interceptor"
+          class="cn.youye.aop.xml.StuInterceptor"/>
+    <bean id="stu" class="cn.youye.aop.xml.Student"/>
+
+    <aop:config>
+        <aop:aspect id="stuInterceptor2" ref="interceptor">
+            <aop:before method="printBeforeAdvice"
+                        pointcut="execution(* cn.youye.aop.xml.Student.show(..))"/>
+            <aop:after method="finallyAdvice"
+                       pointcut="execution(* cn.youye.aop.xml.Student.show(..))"/>
+            <aop:around pointcut="execution(* cn.youye.aop.xml.Student.show(..)) and args(name)"
+                        method="printAroundAdvice"  arg-names="name"/>
+        </aop:aspect>
+
+    </aop:config>
+</beans>

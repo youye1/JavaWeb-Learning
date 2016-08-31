@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--singleTon 仅有一个实例 即单实例-->
+    <!--<bean id="car" class="cn.youye.sptest.bean.beanarrage.Car" scope="singleton"/>-->
+
+    <!--prototype 每次调用都创建一个实例-->
+    <bean id="car" class="cn.youye.factory.beanarrage.Car" scope="prototype"/>
+
+    <bean id="boss1" class="cn.youye.factory.beanarrage.Boss" p:car-ref="car"/>
+    <bean id="boss2" class="cn.youye.factory.beanarrage.Boss" p:car-ref="car"/>
+    <bean id="boss3" class="cn.youye.factory.beanarrage.Boss" p:car-ref="car"/>
+
+</beans>
