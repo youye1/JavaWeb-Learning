@@ -2,7 +2,7 @@ package cn.youye.se.service;
 
 
 import cn.youye.se.dao.UserDao;
-import cn.youye.se.dao.UserDaoImpl;
+import cn.youye.se.dao.impl.UserDaoImpl;
 import cn.youye.se.entity.User;
 import cn.youye.se.util.JdbcPool;
 

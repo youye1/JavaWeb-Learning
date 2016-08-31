@@ -1,6 +1,7 @@
-package cn.youye.se.dao;
+package cn.youye.se.dao.impl;
 
 
+import cn.youye.se.dao.UserDao;
 import cn.youye.se.entity.User;
 
 import java.sql.Connection;

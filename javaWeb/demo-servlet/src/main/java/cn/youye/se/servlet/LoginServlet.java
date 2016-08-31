@@ -37,8 +37,6 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher(forward);
             rd.forward(req, resp);
 
-
-//            resp.sendRedirect(req.getContextPath() + "/WEB-INF/views/modules/test.jsp");
         }
     }
 
