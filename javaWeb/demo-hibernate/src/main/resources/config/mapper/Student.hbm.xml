@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--映射文件的头文件和cfg.xml的头文件存在不同，一定要注意-->
+<hibernate-mapping>
+
+    <class name="cn.youye.hibernate.test1.entity.Student" table="student">
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="native"/>
+        </id>
+        <property name="name" type="java.lang.String" column="name"/>
+        <property name="gender" column="sex"/>
+        <property name="address" column="address"/>
+        <property name="birthday" type="timestamp" column="birthday"/>
+        <property name="picture" type="java.sql.Blob" column="picture"/>
+    </class>
+</hibernate-mapping>
