@@ -6,7 +6,7 @@
 <hibernate-mapping>
 
     <class name="cn.youye.hibernate.test1.entity.Student" table="student">
-        <id name="id" column="id" type="java.lang.Integer">
+        <id name="id" column="id" type="java.lang.Integer" length="50">
             <generator class="native"/>
         </id>
         <property name="name" type="java.lang.String" column="name"/>

@@ -15,7 +15,7 @@
         <property name="connection.password">123456</property>
 
         <!-- DB schema will be updated if needed -->
-         <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">update</property>
         <!--必需：遇到异常 处理-->
         <property name="current_session_context_class">thread</property>
         <!--必需：指定使用方言-->
@@ -26,6 +26,8 @@
 
         <!--注册对象关系映射文件-->
         <mapping resource="config/mapper/Student.hbm.xml"/>
+        <mapping class="cn.youye.hibernate.test1.entity.User"/>
+        <mapping class="cn.youye.hibernate.test1.entity.Role"/>
 
     </session-factory>
 </hibernate-configuration>

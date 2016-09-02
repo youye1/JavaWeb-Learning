@@ -32,6 +32,7 @@ public class test01 {
 
     @Before
     public void beforeTest() {
+        //默认的配置文件可不写configure的参数。
         cfg = new Configuration().configure();
         //创建服务注册对象
         registry = new StandardServiceRegistryBuilder().configure().build();
