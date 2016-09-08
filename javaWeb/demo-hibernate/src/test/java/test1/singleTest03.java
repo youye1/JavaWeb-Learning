@@ -18,6 +18,7 @@ import org.junit.Test;
 import java.io.*;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -119,5 +120,14 @@ public class singleTest03 {
         Student student=new Student();
         student.setId(1);
         session.delete(student);
+    }
+
+    @Test
+    public void list(){
+        List<Student> students=new ArrayList<>();
+        String hsql="FROM Student";
+        students=session.createQuery(hsql).list();
+        System.out.println("====="+students.size());
+        System.out.println("====="+students.toString());
     }
 }

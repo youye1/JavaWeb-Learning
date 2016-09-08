@@ -3,7 +3,7 @@
 <html>
 <head>
 
-    <title>Title</title>
+    <title><spring:message code="title"/></title>
 </head>
 <body>
 <div class="container">

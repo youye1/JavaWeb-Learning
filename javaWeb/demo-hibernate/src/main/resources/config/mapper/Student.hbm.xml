@@ -12,7 +12,7 @@
         <property name="name" type="java.lang.String" column="name"/>
         <property name="gender" column="sex"/>
         <property name="address" column="address"/>
-        <property name="birthday" type="timestamp" column="birthday"/>
+        <property name="birthday" type="java.util.Date" column="birthday"/>
         <property name="picture" type="java.sql.Blob" column="picture"/>
     </class>
 </hibernate-mapping>

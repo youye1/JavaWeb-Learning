@@ -51,8 +51,11 @@ public class test01 {
         sfactory.close();//关闭会化工厂
     }
 
+    /**
+     * 创建表
+     */
     @Test
-    public void createStudent() {
+    public void create() {
         MetadataImplementor implementor = (MetadataImplementor) new MetadataSources(registry).buildMetadata();
         new SchemaExport(implementor).create(true, true);
     }

@@ -14,7 +14,6 @@ public class Student {
     private int id;
     private String name;//姓名
     private String gender;//性别
-    @JSONField(format = "yyyy/MM/dd")
     private Date birthday;//生日
     private String address;
     private Blob picture;
