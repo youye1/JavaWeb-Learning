@@ -4,11 +4,9 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!--映射文件的头文件和cfg.xml的头文件存在不同，一定要注意-->
 <hibernate-mapping>
-    <class name="cn.youye.hibernate.test2.entity.Role" table="role">
-        <id name="id" column="id" type="java.lang.Integer" length="50">
-            <generator class="native"/>
+    <class name="cn.youye.hibernate.test2.entity.Email" table="email">
+        <id name="id" column="id" type="java.lang.String" length="50">
         </id>
-        <property name="name" type="java.lang.String" column="name"/>
-        <property name="description" column="description"/>
+        <property name="email" type="java.lang.String" column="email"/>
     </class>
 </hibernate-mapping>

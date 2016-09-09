@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 人实体类
+ * 个人实体类
  * 测试一对多映射关系：一个人有多个邮箱
  * Email:为多方
  * Person：为一方
@@ -16,28 +16,28 @@ import java.util.List;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
 
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER,targetEntity = Email.class,
+    @OneToMany(fetch = FetchType.LAZY,targetEntity = Email.class,
     cascade = {
             CascadeType.PERSIST,CascadeType.REMOVE,
             CascadeType.MERGE,CascadeType.REFRESH
     })               //一对多关系配置
-    @JoinColumns(value = {@JoinColumn(name = "person id",referencedColumnName = "id")})
+    @JoinColumns(value = {@JoinColumn(name = "person_id",referencedColumnName = "id")})
     @OrderBy(value = "email desc ")
     private List<Email> emails=new ArrayList<Email>();
 
     public Person() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

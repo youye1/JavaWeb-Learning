@@ -52,7 +52,7 @@ public class test01 {
     }
 
     /**
-     * 创建表
+     * 创建所有表
      */
     @Test
     public void create() {

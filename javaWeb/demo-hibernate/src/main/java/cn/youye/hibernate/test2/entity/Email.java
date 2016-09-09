@@ -14,19 +14,19 @@ import javax.persistence.*;
 public class Email {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
 
     private String email;
 
     public Email() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
