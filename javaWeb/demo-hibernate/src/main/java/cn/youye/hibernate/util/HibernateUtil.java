@@ -1,4 +1,4 @@
-package cn.youye.hibernate.test1.util;
+package cn.youye.hibernate.util;
 
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.SessionFactory;

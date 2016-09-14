@@ -3,21 +3,28 @@ package cn.youye.se.servlet;
 import cn.youye.se.entity.User;
 import cn.youye.se.service.UserDaoService;
 
+import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Enumeration;
 
 /**
  * Created by pc on 2016/7/11.
  */
 public class LoginServlet extends HttpServlet {
     private UserDaoService userDaoService = new UserDaoService();
-
+    @Resource(name = "test1")
+    private String test1;
+    private @Resource(name = "test2") String test2;
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String test=getServletContext().getInitParameter("test");
+
         User user = new User();
         user.setName(req.getParameter("username"));
         user.setPassword(req.getParameter("password"));

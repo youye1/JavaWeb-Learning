@@ -6,7 +6,8 @@
 <body>
 <h2>Hello World!</h2>
 <ul>
-    <li><a href="${ctx}/studentServlet?action=list">学生信息管理界面</a> </li>
+    <li><a href="${ctx}/studentServlet?action=list">学生信息管理界面</a></li>
+    <li><a href="${ctx}/employeeServlet">员工管理界面</a></li>
 </ul>
 </body>
 </html>

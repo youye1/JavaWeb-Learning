@@ -43,5 +43,14 @@
         <mapping class="cn.youye.hibernate.test2.entity3.Role"/>
         <mapping class="cn.youye.hibernate.test2.entity3.User"/>
 
+        <mapping class="cn.youye.hibernate.test2.entity4.Clazz"/>
+        <mapping class="cn.youye.hibernate.test2.entity4.Student1"/>
+
+        <mapping class="cn.youye.hibernate.test2.entity5.Husband"/>
+        <mapping class="cn.youye.hibernate.test2.entity5.Wife"/>
+
+        <mapping class="cn.youye.hibernate.testWeb.entity.Employee"/>
+        <mapping class="cn.youye.hibernate.testWeb.entity.Department"/>
+
     </session-factory>
 </hibernate-configuration>

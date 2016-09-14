@@ -20,7 +20,7 @@ import java.util.UUID;
  * 多对多关联映射测试类
  * Created by pc on 2016/9/2.
  */
-public class manyToManyTest1 {
+public class Test2 {
 
     private Configuration config;
     private ServiceRegistry registry;
@@ -49,11 +49,11 @@ public class manyToManyTest1 {
      */
     @Test
     public void test1() {
-        User user = new User();
+        User user =new User();
         user.setId(UUID.randomUUID().toString());
         user.setName("游烨");
         user.setSex("女");
-        User user1 = new User();
+        User user1 =new User();
         user1.setId(UUID.randomUUID().toString());
         user1.setName("佳佳");
         user1.setSex("女");
@@ -78,13 +78,14 @@ public class manyToManyTest1 {
 //        session.persist(user);
 //        session.persist(user1);
 
-        List<User> users = session.createQuery("select u from User u left join " +
-                "fetch u.roles r where r.name = '经理'").list();
-        for (User user2 : users) {
-            System.out.println("|----|" + user2.getName());
+        List<User> users=session.createQuery("select u from User u left join " +
+                "fetch u.roles r where r.name = :name")
+                .setParameter("name","总裁").list();
+        for (User user2:users){
+            System.out.println("|----|"+user2.getName());
             System.out.printf("|----|----");
-            for (Role role : user2.getRoles()) {
-                System.out.printf(role.getName() + " ");
+            for (Role role: user2.getRoles()){
+                System.out.printf(role.getName()+" ");
             }
             System.out.println("");
         }

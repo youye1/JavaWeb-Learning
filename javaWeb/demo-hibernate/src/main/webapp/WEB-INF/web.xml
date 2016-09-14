@@ -9,6 +9,24 @@
         <servlet-class>cn.youye.hibernate.test1.servlet.StudentServlet
         </servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <servlet-class>cn.youye.hibernate.testWeb.servlet.EmployeeServlet
+        </servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DepartmentServlet</servlet-name>
+        <servlet-class>cn.youye.hibernate.testWeb.servlet.DepartmentServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DepartmentServlet</servlet-name>
+        <url-pattern>/departmentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeServlet</servlet-name>
+        <url-pattern>/employeeServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StudentServlet</servlet-name>
         <url-pattern>/studentServlet</url-pattern>

@@ -46,20 +46,6 @@ public class StudentServlet extends HttpServlet {
     }
 
     /**
-     * 添加页面
-     *
-     * @param req
-     * @param resp
-     * @throws ServletException
-     * @throws IOException
-     */
-//    public void initAdd(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        Student student = new Student();
-//        req.setAttribute("student", student);
-//        req.getRequestDispatcher("/WEB-INF/views/test1/student/studentForm.jsp").forward(req, resp);
-//    }
-
-    /**
      * 插入数据到数据库
      *
      * @param req

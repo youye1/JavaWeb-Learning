@@ -1,6 +1,6 @@
 package cn.youye.hibernate.test1.dao;
 
-import cn.youye.hibernate.test1.util.HibernateUtil;
+import cn.youye.hibernate.util.HibernateUtil;
 import org.hibernate.Session;
 
 import java.io.Serializable;

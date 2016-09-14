@@ -4,10 +4,27 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
+
     <servlet>
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>cn.youye.se.servlet.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProgressUploadServlet</servlet-name>
+        <servlet-class>cn.youye.uploadTest.ProgressUploadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>topage</servlet-name>
+        <servlet-class>cn.youye.Topage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>topage</servlet-name>
+        <url-pattern>/toPage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProgressUploadServlet</servlet-name>
+        <url-pattern>/progressServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
