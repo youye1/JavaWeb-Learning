@@ -6,9 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<%@include file="/WEB-INF/views/includes/taglibs.jsp"%>
 <html>
 <head>
     <title>部门表单</title>
@@ -16,7 +14,6 @@
     <script src="${ctx}/static/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         function findManager() {
-            alert("hello world");
             $.ajax({
                 url: '${ctx}/departmentServlet',
                 type: 'post',
@@ -44,7 +41,7 @@
 </head>
 <body>
 [<a href="${ctx}/departmentServlet?action=form">添加部门</a>|
-<a href="${ctx}/employeeServlet?action=form">添加员工(随机数据)</a>|
+<a href="${ctx}/employeeServlet?action=form">添加员工</a>|
 <a href="${ctx}/departmentServlet">部门列表</a>|
 <a href="${ctx}/employeeServlet">员工列表</a>]
 <form action="${ctx}/departmentServlet" method="post">

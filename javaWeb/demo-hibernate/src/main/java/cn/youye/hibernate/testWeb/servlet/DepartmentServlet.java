@@ -39,6 +39,8 @@ public class DepartmentServlet extends HttpServlet {
             save(req, resp);
         } else if ("query".equals(action)) {
             query(req, resp);
+        } else if ("delete".equals(action)) {
+            delete(req, resp);
         } else {
             list(req, resp);
         }
@@ -231,6 +233,23 @@ public class DepartmentServlet extends HttpServlet {
             e.printStackTrace();
         }
         return;
+    }
+
+    /**
+     * 删除部门
+     *
+     * @param req
+     * @param resp
+     */
+    private void delete(HttpServletRequest req, HttpServletResponse resp) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        String id = req.getParameter("id");
+        Department department = session.get(Department.class, id);
+        session.delete(department);
+        session.getTransaction().commit();
+        session.close();
+        list(req,resp);
     }
 
 }

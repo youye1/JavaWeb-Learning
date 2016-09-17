@@ -5,54 +5,19 @@
   Time: 14:56
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page isELIgnored="false" %>
-<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<%@include file="/WEB-INF/views/includes/taglibs.jsp"%>
 <html>
 <head>
     <title>员工页面</title>
     <style type="text/css">
-        #customers {
-            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-            width: 80%;
-            border-collapse: collapse;
-        }
-
-        #customers td, #customers th {
-            font-size: 1em;
-            border: 1px solid #98bf21;
-            padding: 3px 7px 2px 7px;
-        }
-
-        #customers th {
-            font-size: 1.1em;
-            text-align: left;
-            padding-top: 5px;
-            padding-bottom: 4px;
-            background-color: #A7C942;
-            color: #ffffff;
-        }
-
-        #customers tr.alt td {
-            color: #000000;
-            background-color: #EAF2D3;
-        }
-
-        #btnSubmit {
-            font-size: 1em;
-            border-radius: 5px;
-            color: #ffffff;
-            background-color: #98bf21;
-            width: 60px;
-            height: 30px;
-        }
+        <%@include file="/WEB-INF/views/includes/css/table_style.css"%>
     </style>
 </head>
 <body>
 <div class="container">
     [<a href="${ctx}/departmentServlet?action=form">添加部门</a>|
-    <a href="${ctx}/employeeServlet?action=form">添加员工(随机数据)</a>|
+    <a href="${ctx}/employeeServlet?action=form">添加员工</a>|
     <a href="${ctx}/departmentServlet">部门列表</a>|
     <a href="${ctx}/employeeServlet">员工列表</a>]
     <div>
@@ -61,11 +26,11 @@
             <table>
                 <tr>
                     <td><label>姓名：</label>
-                        <input type="text" name="name"
-                               id="name"/>
+                        <input type="text" name="emName"
+                               id="emName"/>
                     </td>
                     <td><label>性别：</label>
-                        <select id="sex" name="sex">
+                        <select id="emSex" name="emSex">
                             <option value=""></option>
                             <option value="男"> 男</option>
                             <option value="女"> 女</option>
@@ -77,13 +42,13 @@
                             <option value="="> =</option>
                             <option value="<"> &lt;</option>
                         </select>
-                        <input type="number" name="age"
-                               id="age" min="20" max="60"/></td>
+                        <input type="number" name="emAge"
+                               id="emAge" min="20" max="60"/></td>
                 </tr>
                 <tr>
                     <td>
                         <label>生日：</label>
-                        <input type="text" id="birthday" name="birthday"/>
+                        <input type="text" id="emBirthday" name="emBirthday"/>
                     </td>
                     <td>
                         <label>上班时间</label>
@@ -97,7 +62,7 @@
                             <option value="="> =</option>
                             <option value="<"> &lt; </option>
                         </select>
-                        <input type="text" id="salary" name="salary"/>
+                        <input type="text" id="emSalary" name="emSalary"/>
                     </td>
                 </tr>
             </table>
