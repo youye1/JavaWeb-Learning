@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -131,25 +132,24 @@ public class DepartmentServlet extends HttpServlet {
     /**
      * 查询经理
      */
-    private JSON query(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void query(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String key = req.getParameter("key");
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         JSONArray json = new JSONArray();
-        JSONObject object = null;
+        JSONObject object = new JSONObject();
         List<Employee> employees = session.createQuery("select e from Employee e " +
                 "where e.name like '%" + key + "%' order by e.name desc ").list();
-        if (employees.size() == 0) {
-            return null;
+        if (employees.size() > 0) {
+            for (Employee e : employees) {
+                object = new JSONObject();
+                object.put("name", e.getName());
+                object.put("id", e.getId());
+                json.add(object);
+            }
         }
-        for (Employee e : employees) {
-            object = new JSONObject();
-            object.put("name", e.getName());
-            object.put("id", e.getId());
-            return object;
-//            json.add(object);
-        }
-        return json;
+        PrintWriter out = resp.getWriter();
+        out.write(json.toJSONString());
     }
 
     /**
@@ -208,6 +208,13 @@ public class DepartmentServlet extends HttpServlet {
             department.getEmployees().size();
         }
         session.close();
+        for (Department depart : departments) {
+            if (depart.getEmployees() == null) {
+                Employee e = new Employee();
+                e.setName("");
+                depart.setManager(e);
+            }
+        }
         req.setAttribute("departments", departments);
         req.setAttribute("order", order);
         req.setAttribute("sort", sort);

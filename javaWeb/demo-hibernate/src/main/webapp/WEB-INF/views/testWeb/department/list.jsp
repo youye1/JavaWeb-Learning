@@ -96,7 +96,7 @@
                 <tr>
                     <td>${department.id}</td>
                     <td>${department.name}</td>
-                    <td>${department.manager.id}</td>
+                    <td>${department.manager}</td>
                     <td>${department.employees.size()}</td>
                     <td>
                         <a href="${ctx}/departmentServlet?action=form&id=${department.id}">修改</a>|

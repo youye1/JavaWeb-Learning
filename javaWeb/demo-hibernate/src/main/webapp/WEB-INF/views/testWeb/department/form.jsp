@@ -36,8 +36,7 @@
                     }
                 },
                 error: function (data) {
-                    alert(data);
-                    alert(data+"--"+data.length);
+                    alert("查找失败，似乎哪里出了问题呢~~~")
                 }
             });
         }
