@@ -62,17 +62,17 @@ ${message}
             <tr>
                 <td>出生日期：</td>
                 <td><input type="text" name="birthday" id="birthday"
-                           value="${employee.birthday}"/></td>
+                           value="${employee.birthday}"/>e.g 2016-09-17</td>
             </tr>
             <tr>
                 <td>上班时间：</td>
                 <td><input type="text" name="startTime" id="startTime"
-                           value="${employee.startTime}"/></td>
+                           value="${employee.startTime}"/>e.g 09:00:00</td>
             </tr>
             <tr>
                 <td>下班时间：</td>
                 <td><input type="text" name="endTime" id="endTime"
-                           value="${employee.endTime}"/>
+                           value="${employee.endTime}"/>e.g 19:00:00
                 </td>
             </tr>
             <tr>

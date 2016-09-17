@@ -47,7 +47,7 @@
 <form action="${ctx}/departmentServlet" method="post">
     <input type="hidden" name="id" value="${id}"/>
     <input type="hidden" name="action" value="save"/>
-        <legend>添加部门</legend>
+        <h3>添加部门</h3>
         <table>
             <tr>
                 <td>名称：</td>
