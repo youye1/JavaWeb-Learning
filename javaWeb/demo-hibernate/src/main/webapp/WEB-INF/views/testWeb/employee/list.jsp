@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/WEB-INF/views/includes/taglibs.jsp"%>
+<%@include file="/WEB-INF/views/includes/taglibs.jsp" %>
 <html>
 <head>
     <title>员工页面</title>
@@ -86,7 +86,7 @@
                 <th>操作</th>
             </tr>
             <c:forEach items="${list}" var="employee" varStatus="vs">
-                <tr class="">
+                <tr class="${ vs.count % 2==0 ?'alt':''}">
                     <td>${employee.name}</td>
                     <td>${employee.sex}</td>
                     <td>${employee.age}</td>

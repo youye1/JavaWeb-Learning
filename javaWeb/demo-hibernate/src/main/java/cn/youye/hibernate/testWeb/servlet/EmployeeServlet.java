@@ -202,15 +202,15 @@ public class EmployeeServlet extends HttpServlet {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Employee employee = new Employee();
-        String id = req.getParameter("id");
-        String name = req.getParameter("name");
-        String sex = req.getParameter("sex");
-        Integer age = Integer.parseInt(req.getParameter("age"));
-        String birthday = req.getParameter("birthday");
-        String startTime = req.getParameter("startTime");
-        String endTime = req.getParameter("endTime");
-        double salary = Double.parseDouble(req.getParameter("salary"));
-        String departmentId = req.getParameter("department");
+        String id = req.getParameter("id").replace(" ","");
+        String name = req.getParameter("name").replace(" ","");
+        String sex = req.getParameter("sex").replace(" ","");
+        Integer age = Integer.parseInt(req.getParameter("age").replace(" ",""));
+        String birthday = req.getParameter("birthday").replace(" ","");
+        String startTime = req.getParameter("startTime").replace(" ","");
+        String endTime = req.getParameter("endTime").replace(" ","");
+        double salary = Double.parseDouble(req.getParameter("salary").replace(" ",""));
+        String departmentId = req.getParameter("department").replace(" ","");
         boolean disabled = false;
         Department department = null;
         if (!StringUtil.isNull(departmentId)) {

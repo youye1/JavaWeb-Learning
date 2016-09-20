@@ -14,6 +14,7 @@
         <module>demo-servlet</module>
         <module>demo-ssm</module>
         <module>demo-spring</module>
+        <module>demo-struts1.x</module>
     </modules>
 
     <name>demo Maven Webapp</name>

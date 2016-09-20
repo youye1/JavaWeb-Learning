@@ -7,7 +7,10 @@
 <h2>Hello World!</h2>
 <ul>
     <li>
-        <a href="${ctx}/toPage?pagename=uploadTest/progressUpload.jsp">上传条文件上传</a>
+        <a href="${ctx}/toPage?pagename=uploadTest/progressUpload.jsp">上传条文件上传</a><br/>
+    </li>
+    <li>
+        <a href="${ctx}/toPage?pagename=uploadFile/upload.jsp">文件上传</a>
     </li>
 </ul>
 </body>

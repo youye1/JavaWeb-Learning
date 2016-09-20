@@ -47,7 +47,7 @@
 <form action="${ctx}/departmentServlet" method="post">
     <input type="hidden" name="id" value="${id}"/>
     <input type="hidden" name="action" value="save"/>
-        <h3>添加部门</h3>
+        <h3>${ empty(id)? '添加部门':'修改部门信息'}</h3>
         <table>
             <tr>
                 <td>名称：</td>

@@ -24,7 +24,7 @@ ${message}
     <input type="hidden" name="id" value="${employee.id}"/>
     <input type="hidden" name="action" id="action" value="add">
     <div>
-        <h3>添加员工信息</h3>
+        <h3>${ empty(employee.id)? '添加员工信息':'修改员工信息'}</h3>
         <table>
             <tr>
                 <td>部门：</td>

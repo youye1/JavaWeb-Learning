@@ -24,7 +24,7 @@
         #progressBarItem {
             width: 30%;
             height: 100%;
-            background: #FF0000;
+            background: #02ff55;
         }
     </style>
 </head>

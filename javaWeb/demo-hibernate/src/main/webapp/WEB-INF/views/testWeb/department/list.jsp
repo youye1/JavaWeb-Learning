@@ -59,7 +59,7 @@
                 <th>操作</th>
             </tr>
             <c:forEach items="${departments}" var="department" varStatus="vs">
-                <tr>
+                <tr  class="${ vs.count % 2==0 ?'alt':''}">
                     <td>${department.id}</td>
                     <td>${department.name}</td>
                     <td>${department.manager.name}</td>

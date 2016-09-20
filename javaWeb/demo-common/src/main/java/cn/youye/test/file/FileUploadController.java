@@ -48,7 +48,7 @@ public class FileUploadController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "redirect:http://localhost:8080/demo-test/upload/" + fileName;
+        return "redirect:http://localhost:8080/demo-common/upload/" + fileName;
     }
 
     @RequestMapping("/twoUpload")
@@ -78,7 +78,7 @@ public class FileUploadController {
                     e.printStackTrace();
                 }
             }
-            fileList.add("http://localhost:8080/demo-test/upload/" + fileName);
+            fileList.add("http://localhost:8080/demo-common/upload/" + fileName);
         }
         model.addAttribute("files", fileList);
         return "modules/file/fileShow";

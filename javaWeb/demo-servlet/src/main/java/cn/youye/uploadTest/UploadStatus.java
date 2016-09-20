@@ -5,13 +5,13 @@ package cn.youye.uploadTest;
  */
 public class UploadStatus {
 
-    private long bytesRead;
+    private long bytesRead; //已上传的字节数
 
-    private long contentLength;
+    private long contentLength; //所有文件总长度
 
-    private int items;
+    private int items;  //正在上传的文件
 
-    private long startTime = System.currentTimeMillis();
+    private long startTime = System.currentTimeMillis();    //开始长传的时间
 
     public long getBytesRead() {
         return bytesRead;
